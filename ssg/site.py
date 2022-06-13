@@ -10,8 +10,23 @@ class Site:
     def create_dir(self, path):
         path = Path(path)
         rel = path.relative_to(self.source)
-        directory = Path(self.dest, '/', rel)
+        print('rel',rel)
+        directory = self.dest / rel
         print (directory)
 
+        directory.mkdir(parents=True, exist_ok=True)
+
+    def build(self):
+        self.dest.mkdir(parents=True, exist_ok=True)
+        print('created', self.dest)
+
+        for path in self.source.rglob("*"):
+            print(path)
+            if path.is_dir():
+                self.create_dir(path)
+            else:
+                print('not a dir')
+
+
 s = Site('/Users/sarahsloan/dev/LearningWorkspace/python-static-site-generator/content/', '/Users/sarahsloan/dev/LearningWorkspace/site_dest')
-s.create_dir('/images')
+s.build()
