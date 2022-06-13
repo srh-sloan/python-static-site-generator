@@ -28,5 +28,5 @@ class Site:
                 print('not a dir')
 
 
-s = Site('/Users/sarahsloan/dev/LearningWorkspace/python-static-site-generator/content/', '/Users/sarahsloan/dev/LearningWorkspace/site_dest')
-s.build()
+#s = Site('/Users/sarahsloan/dev/LearningWorkspace/python-static-site-generator/content/', '/Users/sarahsloan/dev/LearningWorkspace/site_dest')
+#s.build()
